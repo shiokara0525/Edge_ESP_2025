@@ -163,6 +163,9 @@ class oled_attack{
     Vector2D cam_back_vec;
     int ac_dir;
 
+    timer kirakira;
+    int kirakira_count = 0;
+
     int addresses[EEPROM_SIZE];
 };
 /*------------------------------------------------------------------------------------------------------------*/

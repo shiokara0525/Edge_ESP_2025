@@ -330,6 +330,7 @@ void oled_attack::OLED(send_teensy &teensy) {
     if(A != B){  //ステートが変わったときのみ実行(初期化)
       Button_select = 0;  //ボタンの選択(next)をデフォルトにする
       B = A;
+      kirakira.reset();
     }
 
     set_getBall_Threshold();
@@ -666,7 +667,6 @@ void oled_attack::display_main(){
     display.setCursor(88,44);
     display.println("Motar");
 
-    //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
     if(Sentor){
       A = 10;
     }
@@ -697,7 +697,6 @@ void oled_attack::display_main(){
     display.setCursor(88,45);
     display.println("Line");
 
-    //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
     if(Sentor){
       A = 60;
     }
@@ -727,7 +726,6 @@ void oled_attack::display_main(){
     display.setCursor(88,45);
     display.println("Line");
 
-    //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
     if(Sentor){
       A = 20;
     }
@@ -757,7 +755,6 @@ void oled_attack::display_main(){
     display.setCursor(94,45);
     display.println("Ball");
 
-    //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
     if(Sentor){
       A = 30;
     }
@@ -787,7 +784,6 @@ void oled_attack::display_main(){
     display.setCursor(88,45);
     display.println("Ball");
 
-    //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
     if(Sentor){
       A = 40;
     }
@@ -817,7 +813,6 @@ void oled_attack::display_main(){
     display.setCursor(88,45);
     display.println("B_get");
 
-    //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
     if(Sentor){
       A = 50;
     }
@@ -843,7 +838,6 @@ void oled_attack::display_main(){
     display.setCursor(85,40);
     display.println("setAny");
 
-    //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
     if(Sentor){
       A = 90;
     }
@@ -871,7 +865,6 @@ void oled_attack::display_main(){
     display.setCursor(85,40);
     display.println("checkCam");
 
-    //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
     if(Sentor){
       A = 70;
     }
@@ -900,7 +893,6 @@ void oled_attack::display_main(){
     display.setCursor(88,45);
     display.println("");
 
-    //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
     if(Sentor){
       A = 80;
     }
@@ -926,7 +918,6 @@ void oled_attack::display_main(){
     display.setCursor(88,45);
     display.println("Mode");
 
-    //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
     if(Sentor){
       A = 100;
     }
@@ -954,7 +945,6 @@ void oled_attack::display_main(){
     display.setCursor(88,45);
     display.println("");
 
-    //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
     if(Sentor){
       A = 110;
     }
@@ -1109,7 +1099,6 @@ void oled_attack::display_start(){
   display.setCursor(104,56);
   display.println("Next");
 
-  //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
   if(Right == 1){
     Button_select = 0;  //next
   }
@@ -1175,7 +1164,6 @@ void oled_attack::display_selectColor(){
   display.setCursor(90,30);
   display.println("Blue");
 
-  //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
 
   if(Right == 1){
     Button_selectCF++;  //next
@@ -1274,7 +1262,6 @@ void oled_attack::display_waitStart(){
     setplay_flag = 2;
   }
 
-  //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
 
   if(Right == 1){
     if(Button_select < 5){
@@ -1332,8 +1319,6 @@ void oled_attack::set_MotorVal(){
   display.setCursor(44,56);
   display.println("Confirm");
 
-  //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
-  //タクトスイッチが押されたら、メニューに戻る
   if(Right == 1){
     if(val_max < 1023){
       val_max++;
@@ -1385,8 +1370,6 @@ void oled_attack::set_Line_Threshold(){
   display.setCursor(44,56);
   display.println("Confirm");
 
-  //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
-  //タクトスイッチが押されたら、メニューに戻る
 
   if(Right == 1){
     if(LINE_level < 1023){
@@ -1506,9 +1489,6 @@ void oled_attack::display_Line(){
     }
     pixels.show();
   }
-
-  //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
-  //タクトスイッチが押されたら、メニューに戻る
 }
 
 
@@ -1549,8 +1529,35 @@ void oled_attack::set_getBall_Threshold(){
   display.setCursor(44,56);
   display.println("Confirm");
 
-  //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
-//タクトスイッチが押されたら、メニューに戻る
+
+  if(300 < kirakira.read_ms()){
+    kirakira_count += 1;
+    kirakira_count = kirakira_count % 16;
+  }
+
+  int kirakira_num[16];
+  for(int i = 0; i < 16; i++){
+    kirakira_num[i] = (kirakira_count + i) % 16;
+  }
+  
+  pixels.setPixelColor(kirakira_num[0],pixels.Color(255,0,0));
+  pixels.setPixelColor(kirakira_num[1],pixels.Color(255,150,0));
+  pixels.setPixelColor(kirakira_num[2],pixels.Color(255,200,0));
+  pixels.setPixelColor(kirakira_num[3],pixels.Color(255,240,0));
+  pixels.setPixelColor(kirakira_num[4],pixels.Color(150,180,0));
+  pixels.setPixelColor(kirakira_num[5],pixels.Color(0,135,0));
+  pixels.setPixelColor(kirakira_num[6],pixels.Color(0,140,150));
+  pixels.setPixelColor(kirakira_num[7],pixels.Color(0,145,255));
+  pixels.setPixelColor(kirakira_num[8],pixels.Color(0,120,210));
+  pixels.setPixelColor(kirakira_num[9],pixels.Color(0,100,190));
+  pixels.setPixelColor(kirakira_num[10],pixels.Color(70,50,160));
+  pixels.setPixelColor(kirakira_num[11],pixels.Color(145,0,130));
+  pixels.setPixelColor(kirakira_num[12],pixels.Color(230,0,100));
+  pixels.setPixelColor(kirakira_num[13],pixels.Color(200,0,80));
+  pixels.setPixelColor(kirakira_num[14],pixels.Color(200,0,50));
+  pixels.setPixelColor(kirakira_num[15],pixels.Color(200,0,20));
+
+  pixels.show();
 
   if(Right == 1){
     if(ball_getth < 1023){
@@ -1630,9 +1637,6 @@ void oled_attack::display_Ball(){
   Serial.print(ball_pos);
   pixels.setPixelColor(ball_pos,pixels.Color(0,150,0));
   pixels.show();
-
-  //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
-  //タクトスイッチが押されたら、メニューに戻る
 }
 
 
@@ -1747,8 +1751,6 @@ void oled_attack::set_Avaliable(){
   display.setCursor(66,50);
   display.println(check_val[5]);    //この中に知りたい変数を入力
 
-  //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
-  //タクトスイッチが押されたら、メニューに戻る
 
   if(check_flag == 0){
     if(Left == 1){
@@ -1898,8 +1900,6 @@ void oled_attack::display_Cam(){
   }
 
   pixels.show();
-  //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
-  //タクトスイッチが押されたら、メニューに戻る
 }
 
 
@@ -1964,9 +1964,6 @@ void oled_attack::display_getBall(){
   display.println(":");    //この中に知りたい変数を入力
   display.setCursor(66,50);
   display.println();    //この中に知りたい変数を入力
-
-  //タクトスイッチが押されたら(手を離されるまで次のステートに行かせたくないため、変数aaを使っている)
-  //タクトスイッチが押されたら、メニューに戻る
 }
 
 
