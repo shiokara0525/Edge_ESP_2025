@@ -1534,29 +1534,9 @@ void oled_attack::set_getBall_Threshold(){
     kirakira_count += 1;
     kirakira_count = kirakira_count % 16;
   }
-
-  int kirakira_num[16];
-  for(int i = 0; i < 16; i++){
-    kirakira_num[i] = (kirakira_count + i) % 16;
-  }
   
-  pixels.setPixelColor(kirakira_num[0],pixels.Color(255,0,0));
-  pixels.setPixelColor(kirakira_num[1],pixels.Color(255,150,0));
-  pixels.setPixelColor(kirakira_num[2],pixels.Color(255,200,0));
-  pixels.setPixelColor(kirakira_num[3],pixels.Color(255,240,0));
-  pixels.setPixelColor(kirakira_num[4],pixels.Color(150,180,0));
-  pixels.setPixelColor(kirakira_num[5],pixels.Color(0,135,0));
-  pixels.setPixelColor(kirakira_num[6],pixels.Color(0,140,150));
-  pixels.setPixelColor(kirakira_num[7],pixels.Color(0,145,255));
-  pixels.setPixelColor(kirakira_num[8],pixels.Color(0,120,210));
-  pixels.setPixelColor(kirakira_num[9],pixels.Color(0,100,190));
-  pixels.setPixelColor(kirakira_num[10],pixels.Color(70,50,160));
-  pixels.setPixelColor(kirakira_num[11],pixels.Color(145,0,130));
-  pixels.setPixelColor(kirakira_num[12],pixels.Color(230,0,100));
-  pixels.setPixelColor(kirakira_num[13],pixels.Color(200,0,80));
-  pixels.setPixelColor(kirakira_num[14],pixels.Color(200,0,50));
-  pixels.setPixelColor(kirakira_num[15],pixels.Color(200,0,20));
-
+  
+  pixels.rainbow((kirakira.read_ms() % 2000) * 32,1,255,180);
   pixels.show();
 
   if(Right == 1){
